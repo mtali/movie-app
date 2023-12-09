@@ -18,6 +18,14 @@ const routes: Routes = [
   {
     path: 'genres',
     loadChildren: () => import("./components/genre-list/genre-list.module").then(mod => mod.GenreListModule)
+  },
+  {
+    path: 'genres/:id/:name',
+    loadChildren: () => import('./components/genre/genre.module').then(mod => mod.GenreModule)
+  },
+  {
+    path: 'genres-tv/:id/:name',
+    loadChildren: () => import('./components/tv-genre/tv-genre.module').then(mod => mod.TvGenreModule)
   }
 ];
 
