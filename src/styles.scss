@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #141414;
+}
+
 .content {
   --padding-inline: 1rem;
   --content-max-width: 1280px;

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {GenresResponse} from "../models/genres-response";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class MoviesService {
     this.region = "US"
   }
 
-  getGenres(): Observable<any> {
-    return this.http.get(`${this.baseUrl}genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
+  getGenres(): Observable<GenresResponse> {
+    return this.http.get<GenresResponse>(`${this.baseUrl}genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
   }
 }

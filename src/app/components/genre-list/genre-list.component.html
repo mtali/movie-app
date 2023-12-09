@@ -1,3 +1,23 @@
-<div class="content">
-  <p class="my-5 bg-amber-300">Genres-list works!</p>
+<div class="content mt-10 mb-10">
+  @if (loader) {
+    <p class="text-white">Loading ...</p>
+  } @else {
+    <h2 class="text-white text-2xl text-center font-medium mb-10">Movies Genres</h2>
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5 md:gap-10">
+      @for (genre of genres;track genre.id) {
+        <a class="active:scale-95 cursor-pointer">
+          <div class="bg-[#DB4566] text-center py-2 text-white text-[1.1rem]">{{ genre.name }}</div>
+        </a>
+      }
+    </div>
+
+    <h2 class="text-white text-2xl text-center font-medium my-10">TV Genres</h2>
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
+      @for (genre of genres;track genre.id) {
+        <a class="active:scale-95 cursor-pointer">
+          <div class="bg-[#DB4566] text-center py-2 text-white text-[1.1rem]">{{ genre.name }}</div>
+        </a>
+      }
+    </div>
+  }
 </div>

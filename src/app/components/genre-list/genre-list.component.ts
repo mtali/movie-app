@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MoviesService} from "../../service/movies.service";
+import {GenresResponse} from "../../models/genres-response";
+import {Genre} from "../../models/genre";
 
 @Component({
   selector: 'app-genres-list',
@@ -7,7 +9,7 @@ import {MoviesService} from "../../service/movies.service";
 })
 export class GenreListComponent implements OnInit {
 
-  genres: any;
+  genres: Genre[] = [];
   loader: boolean = true;
 
   constructor(private moviesService: MoviesService) {
@@ -15,10 +17,9 @@ export class GenreListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.moviesService.getGenres().subscribe((res: any) => {
+    this.moviesService.getGenres().subscribe((res: GenresResponse) => {
       this.genres = res.genres;
       this.loader = false;
-      console.log(res);
     })
   }
 }
