@@ -1,9 +1,9 @@
 <nav
   class="px-[47px] items-center flex-wrap flex flex-row justify-between py-5 bg-[#212121] text-white text text-[1.1rem]">
-  <a class="text-2xl mr-2" routerLink="">MoviesApp</a>
+  <a [routerLink]="['/']" class="text-2xl mr-2">MoviesApp</a>
   <ul class="flex gap-5">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Movies</a></li>
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['movies']" href="#">Movies</a></li>
     <li><a href="#">TV Shows</a></li>
     <li><a href="#">Genres</a></li>
   </ul>
