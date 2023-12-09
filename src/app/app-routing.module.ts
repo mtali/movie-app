@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'tv',
     loadChildren: () => import("./components/tv-shows/tv-shows.module").then(mod => mod.TvShowsModule)
+  },
+  {
+    path: 'genres',
+    loadChildren: () => import("./components/genre-list/genre-list.module").then(mod => mod.GenreListModule)
   }
 ];
 
