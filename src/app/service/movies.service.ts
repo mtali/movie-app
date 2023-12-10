@@ -28,4 +28,8 @@ export class MoviesService {
   getMoviesByGenre(id: number): Observable<MoviesResponse> {
     return this.http.get<MoviesResponse>(`${this.baseUrl}/genre/${id}/movies?api_key=${this.apiKey}`)
   }
+
+  getNowPlaying(page: number): Observable<MoviesResponse> {
+    return this.http.get<MoviesResponse>(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`)
+  }
 }
