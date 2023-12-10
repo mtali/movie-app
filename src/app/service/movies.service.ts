@@ -14,13 +14,17 @@ export class MoviesService {
 
 
   constructor(private http: HttpClient) {
-    this.baseUrl = "https://api.themoviedb.org/3/";
+    this.baseUrl = "https://api.themoviedb.org/3";
     this.apiKey = "dd4d819639705d332d531217b4f7c6b6";
     this.language = "en-US"
     this.region = "US"
   }
 
   getGenres(): Observable<GenresResponse> {
-    return this.http.get<GenresResponse>(`${this.baseUrl}genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
+    return this.http.get<GenresResponse>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
+  }
+
+  getMoviesByGenre(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/genre/${id}/movies?api_key=${this.apiKey}`)
   }
 }
