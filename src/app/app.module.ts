@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {SliderComponent} from './components/slider/slider.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SkeletonModule} from "./shared/skeleton/skeleton.module";
+import {CarouselModule} from "primeng/carousel";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {SkeletonModule} from "./shared/skeleton/skeleton.module";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SkeletonModule
+    SkeletonModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
