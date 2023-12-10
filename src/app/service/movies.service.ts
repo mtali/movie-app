@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {GenresResponse} from "../models/genres-response";
+import {MoviesResponse} from "../models/movies-response";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class MoviesService {
     return this.http.get<GenresResponse>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
   }
 
-  getMoviesByGenre(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/genre/${id}/movies?api_key=${this.apiKey}`)
+  getMoviesByGenre(id: number): Observable<MoviesResponse> {
+    return this.http.get<MoviesResponse>(`${this.baseUrl}/genre/${id}/movies?api_key=${this.apiKey}`)
   }
 }
