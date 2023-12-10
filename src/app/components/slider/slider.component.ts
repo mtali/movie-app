@@ -37,7 +37,9 @@ export class SliderComponent implements OnInit {
 
   sliderTimer() {
     setInterval(() => {
-      this.current = ++this.current % this.movieData.length;
-    }, 5000);
+      if (this.movieData.length > 0) {
+        this.current = ++this.current % this.movieData.length;
+      }
+    }, 1000);
   }
 }
