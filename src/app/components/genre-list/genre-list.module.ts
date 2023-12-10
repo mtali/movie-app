@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {GenreListComponent} from './genre-list.component';
 import {GenreListRoutingModule} from "./genre-list-routing.module";
+import {SkeletonModule} from "../../shared/skeleton/skeleton.module";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {GenreListRoutingModule} from "./genre-list-routing.module";
   ],
   imports: [
     CommonModule,
-    GenreListRoutingModule
+    GenreListRoutingModule,
+    SkeletonModule
   ]
 })
 export class GenreListModule {
