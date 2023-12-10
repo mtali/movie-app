@@ -40,6 +40,6 @@ export class SliderComponent implements OnInit {
       if (this.movieData.length > 0) {
         this.current = ++this.current % this.movieData.length;
       }
-    }, 1000);
+    }, 5000);
   }
 }
