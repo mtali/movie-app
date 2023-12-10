@@ -8,6 +8,7 @@ import {HomeComponent} from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SliderComponent} from './components/slider/slider.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SkeletonModule} from "./shared/skeleton/skeleton.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SkeletonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
