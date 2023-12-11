@@ -7,5 +7,6 @@ export interface Movie {
   release_date: string;
   overview: string;
   adult: boolean;
-  backdrop_path: string
+  backdrop_path: string;
+  poster_path: string;
 }

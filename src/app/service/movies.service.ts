@@ -32,4 +32,12 @@ export class MoviesService {
   getNowPlaying(page: number): Observable<MoviesResponse> {
     return this.http.get<MoviesResponse>(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`)
   }
+
+  getTopRatedMovies(page: number): Observable<MoviesResponse> {
+    return this.http.get<MoviesResponse>(`${this.baseUrl}/movie/top_rated?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`);
+  }
+
+  searchMovies(searchQuery: string): Observable<MoviesResponse> {
+    return this.http.get<MoviesResponse>(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${searchQuery}`);
+  }
 }
