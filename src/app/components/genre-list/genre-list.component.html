@@ -10,14 +10,5 @@
         </a>
       }
     </div>
-
-    <h2 class="text-white text-2xl text-center font-medium my-10">TV Genres</h2>
-    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
-      @for (genre of genres;track genre.id) {
-        <a routerLink="/genres-tv/{{genre.id}}/{{genre.name}}" class="active:scale-95 cursor-pointer">
-          <div class="bg-[#DB4566] text-center py-2 text-white text-[1.1rem]">{{ genre.name }}</div>
-        </a>
-      }
-    </div>
   }
 </div>
