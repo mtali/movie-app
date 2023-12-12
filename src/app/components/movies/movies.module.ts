@@ -4,6 +4,7 @@ import {MoviesComponent} from './movies.component';
 import {MoviesRoutingModule} from "./movies-routing.module";
 import {SkeletonModule} from "../../shared/skeleton/skeleton.module";
 import {FormsModule} from "@angular/forms";
+import {PaginatorModule} from "primeng/paginator";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     MoviesRoutingModule,
     SkeletonModule,
-    FormsModule
+    FormsModule,
+    PaginatorModule
   ]
 })
 export class MoviesModule {

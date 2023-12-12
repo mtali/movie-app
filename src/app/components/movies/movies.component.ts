@@ -14,7 +14,8 @@ export class MoviesComponent implements OnInit {
   searchQuery: string = "";
   topRatedMovies: Movie[] = [];
   totalResults: number = 0;
-  searchResults: Movie[] = []
+  searchResults: Movie[] = [];
+  first: number = 0;
 
   constructor(private moviesService: MoviesService) {
   }
@@ -45,5 +46,10 @@ export class MoviesComponent implements OnInit {
         this.loading = false;
       })
     }
+  }
+
+  onPageChange(event: any) {
+    const page = event.page + 1;
+    this.getTopRatedMovies(page);
   }
 }
