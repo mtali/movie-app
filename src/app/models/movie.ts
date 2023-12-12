@@ -9,4 +9,5 @@ export interface Movie {
   adult: boolean;
   backdrop_path: string;
   poster_path: string;
+  runtime: string;
 }

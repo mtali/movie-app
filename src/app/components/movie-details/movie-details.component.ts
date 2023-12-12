@@ -11,7 +11,6 @@ export class MovieDetailsComponent implements OnInit {
   public id!: number;
   public video!: boolean;
   movie: any;
-  loading: boolean = true;
 
   constructor(
     private moviesService: MoviesService,

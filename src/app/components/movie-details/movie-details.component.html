@@ -20,5 +20,64 @@
       </p>
     </div>
   </div>
+
+  <div class="content mt-10">
+    <p-tabView>
+      <p-tabPanel header="Overview" headerStyleClass="text-xl">
+        <div class="flex">
+          <div class="w-1/4 hidden md:block md:max-w-[400px] md:pr-2 lg:pr-5">
+            <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ movie?.poster_path }}">
+          </div>
+          <div class="grow">
+            <div class="max-w-[1000px] mb-3">
+              <h2 class="mb-[1rem] text-[1.3rem] font-semibold">Storyline</h2>
+              <div>{{ movie?.overview }}</div>
+            </div>
+            <div class="mt-10 ">
+              <ul class="flex flex-wrap">
+
+                <li class="w-full md:w-1/2 flex mb-3">
+                  <div class="max-w-[110px] flex-1">Released</div>
+                  <div class="flex-[2]">{{ movie.release_date }}</div>
+                </li>
+
+                <li class="w-full md:w-1/2 flex mb-3">
+                  <div class="max-w-[110px] flex-1">Runtime</div>
+                  <div class="flex-[2]">{{ movie.runtime }}</div>
+                </li>
+                @if (movie?.budget) {
+                  <li class="w-full md:w-1/2 flex mb-3">
+                    <div class="max-w-[110px] flex-1">Budget</div>
+                    <div class="flex-[2]">{{ movie.budget }}</div>
+                  </li>
+                }
+
+                @if (movie?.revenue) {
+                  <li class="w-full md:w-1/2 flex mb-3">
+                    <div class="max-w-[110px] flex-1">Revenue</div>
+                    <div class="flex-[2]">{{ movie.revenue }}</div>
+                  </li>
+                }
+
+                @if (movie?.status) {
+                  <li class="w-full md:w-1/2 flex mb-3">
+                    <div class="max-w-[110px] flex-1">Status</div>
+                    <div class="flex-[2]">{{ movie.status }}</div>
+                  </li>
+                }
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Videos" headerStyleClass="text-xl">
+        <p>Videos</p>
+      </p-tabPanel>
+      <p-tabPanel header="Photos" headerStyleClass="text-xl">
+        <p>Photos</p>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
 }
 
