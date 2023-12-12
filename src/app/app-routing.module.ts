@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'genres/:id/:name',
     loadChildren: () => import('./components/genre/genre.module').then(mod => mod.GenreModule)
+  },
+  {
+    path: 'movies/:id',
+    loadChildren: () => import('./components/movie-details/movie-details.module').then(mod => mod.MovieDetailsModule)
   }
 ];
 
