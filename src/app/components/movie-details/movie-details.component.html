@@ -38,24 +38,24 @@
 
                 <li class="w-full md:w-1/2 flex mb-3">
                   <div class="max-w-[110px] flex-1">Released</div>
-                  <div class="flex-[2]">{{ movie.release_date }}</div>
+                  <div class="flex-[2]">{{ movie.release_date | fullDate }}</div>
                 </li>
 
                 <li class="w-full md:w-1/2 flex mb-3">
                   <div class="max-w-[110px] flex-1">Runtime</div>
-                  <div class="flex-[2]">{{ movie.runtime }}</div>
+                  <div class="flex-[2]">{{ movie.runtime | time }}</div>
                 </li>
                 @if (movie?.budget) {
                   <li class="w-full md:w-1/2 flex mb-3">
                     <div class="max-w-[110px] flex-1">Budget</div>
-                    <div class="flex-[2]">{{ movie.budget }}</div>
+                    <div class="flex-[2]">{{ movie.budget | numberWithCommas }}</div>
                   </li>
                 }
 
                 @if (movie?.revenue) {
                   <li class="w-full md:w-1/2 flex mb-3">
                     <div class="max-w-[110px] flex-1">Revenue</div>
-                    <div class="flex-[2]">{{ movie.revenue }}</div>
+                    <div class="flex-[2]">{{ movie.revenue | numberWithCommas }}</div>
                   </li>
                 }
 
@@ -65,6 +65,13 @@
                     <div class="flex-[2]">{{ movie.status }}</div>
                   </li>
                 }
+
+                <li class="w-full md:w-1/2 flex mb-3" *ngIf="movie?.spoken_languages?.length">
+                  <div class="max-w-[110px] flex-1">Language</div>
+                  <div class="flex-[2]" *ngFor="let language of movie?.spoken_languages">
+                    {{ language?.name }}
+                  </div>
+                </li>
               </ul>
 
             </div>
