@@ -77,6 +77,29 @@
             </div>
           </div>
         </div>
+
+        <div class="casts">
+          <h2 class="mb-[1rem] text-[1.3rem] font-semibold mt-8">Casts</h2>
+          <p-carousel [value]="casts" [numVisible]="5" [numScroll]="4" [circular]="false"
+                      [responsiveOptions]="responsiveOptions">
+            <ng-template let-cast pTemplate="item">
+
+              <div
+                class="cursor-pointer bg-[#212121] h-auto m-5 border border-white border-opacity-10 text-white rounded my-[11px] mx-[5px]">
+
+                <img *ngIf="cast.profile_path"
+                     class="w-full rounded-t-[5px] object-cover"
+                     src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{cast?.profile_path}}" alt="poster"/>
+                <img *ngIf="!cast.profile_path"
+                     class="w-full rounded-t-[5px] object-cover"
+                     src="./assets/images/default-movie.png" alt="">
+                <h6
+                  class="w-[200px] uppercase font-medium p-2 whitespace-nowrap overflow-ellipsis overflow-hidden">{{ cast.name }}</h6>
+              </div>
+            </ng-template>
+          </p-carousel>
+        </div>
+
       </p-tabPanel>
       <p-tabPanel header="Videos" headerStyleClass="text-xl">
         <p>Videos</p>
