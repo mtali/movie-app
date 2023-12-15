@@ -65,7 +65,6 @@
                     <div class="flex-[2]">{{ movie.status }}</div>
                   </li>
                 }
-
                 <li class="w-full md:w-1/2 flex mb-3" *ngIf="movie?.spoken_languages?.length">
                   <div class="max-w-[110px] flex-1">Language</div>
                   <div class="flex-[2]" *ngFor="let language of movie?.spoken_languages">
