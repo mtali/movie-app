@@ -100,7 +100,28 @@
 
       </p-tabPanel>
       <p-tabPanel header="Videos" headerStyleClass="text-xl">
-        <p>Videos</p>
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 min-w-full gap-5">
+          @for (list of relatedVideos;track list.id) {
+            <div class="cursor-pointer" (click)="openDialogVideo(list)">
+              <div class="relative">
+                <img src="https://img.youtube.com/vi/{{list?.key}}/mqdefault.jpg" alt="">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                       viewBox="0 0 55 55">
+                    <circle cx="27.5" cy="27.5" r="26.75" fill="none" stroke="#fff"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    <path fill="none" stroke="#fff" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="1.5"
+                          d="M20.97 40.81L40.64 27.5 20.97 14.19v26.62z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="overflow-hidden overflow-ellipsis whitespace-nowrap my-2">{{ list?.name }}</div>
+              <div class="text-gray-500">{{ list?.type }}</div>
+
+            </div>
+          }
+        </div>
       </p-tabPanel>
       <p-tabPanel header="Photos" headerStyleClass="text-xl">
         <p>Photos</p>

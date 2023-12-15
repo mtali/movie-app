@@ -70,4 +70,8 @@ export class MovieDetailsComponent implements OnInit {
       this.relatedVideos = res.results;
     }));
   }
+
+  openDialogVideo(item: Video) {
+
+  }
 }
