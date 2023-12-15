@@ -1,6 +1,6 @@
 <div class="relative h-[38rem] bg-black text-white">
   @for (slider of movieData;track slider.id) {
-    <ng-container *ngIf="current == $index" @fade>
+    <div *ngIf="current == $index" @fade>
       <div class="backdrop absolute top-0 right-0 h-full w-[71%]">
         <div class="w-full h-full">
           <img class="h-full w-full object-cover" src="https://image.tmdb.org/t/p/original/{{ slider.backdrop_path }}"
@@ -20,7 +20,7 @@
           {{ slider.overview }}
         </p>
       </div>
-    </ng-container>
+    </div>
   }
 
 </div>
