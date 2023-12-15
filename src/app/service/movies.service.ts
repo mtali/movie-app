@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {GenresResponse} from "../models/genres-response";
 import {MoviesResponse} from "../models/movies-response";
 import {MovieCreditsResponse} from "../models/movie-credits-response";
+import {VideosResponse} from "../models/videos-response";
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,9 @@ export class MoviesService {
 
   getMovieCredits(id: number): Observable<MovieCreditsResponse> {
     return this.http.get<MovieCreditsResponse>(`${this.baseUrl}/movie/${id}/credits?api_key=${this.apiKey}`);
+  }
+
+  getMovieVideos(id: number): Observable<VideosResponse> {
+    return this.http.get<VideosResponse>(`${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}`);
   }
 }

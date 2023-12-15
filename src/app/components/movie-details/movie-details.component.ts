@@ -3,6 +3,8 @@ import {MoviesService} from "../../service/movies.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Cast} from "../../models/cast";
 import {MovieCreditsResponse} from "../../models/movie-credits-response";
+import {Video} from "../../models/video";
+import {VideosResponse} from "../../models/videos-response";
 
 @Component({
   selector: 'app-movie-details',
@@ -11,10 +13,11 @@ import {MovieCreditsResponse} from "../../models/movie-credits-response";
 })
 export class MovieDetailsComponent implements OnInit {
   public id!: number;
-  public video!: boolean;
   movie: any;
   casts: Cast[] = [];
   responsiveOptions: any
+  video: Video | null = null;
+  relatedVideos: any
 
   constructor(
     private moviesService: MoviesService,
@@ -44,6 +47,7 @@ export class MovieDetailsComponent implements OnInit {
       this.id = params["id"];
       this.getMovie(this.id);
       this.getCasts(this.id);
+      this.getVideos(this.id);
     })
   }
 
@@ -58,5 +62,12 @@ export class MovieDetailsComponent implements OnInit {
     this.moviesService.getMovieCredits(movieId).subscribe((res: MovieCreditsResponse) => {
       this.casts = res.cast;
     })
+  }
+
+  getVideos(movieId: number) {
+    this.moviesService.getMovieVideos(movieId).subscribe(((res: VideosResponse) => {
+      this.video = res.results[0];
+      this.relatedVideos = res.results;
+    }));
   }
 }
