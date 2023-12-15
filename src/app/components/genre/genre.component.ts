@@ -25,15 +25,15 @@ export class GenreComponent implements OnInit {
     this.router.params.subscribe((params: Params) => {
       this.id = params["id"];
       this.title = params["name"];
-      console.log(this.id, this.title)
       this.getMoviesByGenre(this.id)
     });
   }
 
   getMoviesByGenre(id: number) {
     this.moviesService.getMoviesByGenre(id).subscribe((res: MoviesResponse) => {
-      console.log(res)
-      this.moviesGenre = res.results;
+      this.moviesGenre = res.results.filter(movie => {
+        return movie.backdrop_path != null
+      });
       this.loading = false;
     });
   }
