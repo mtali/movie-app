@@ -32,7 +32,7 @@ export class GenreComponent implements OnInit {
   getMoviesByGenre(id: number) {
     this.moviesService.getMoviesByGenre(id).subscribe((res: MoviesResponse) => {
       this.moviesGenre = res.results.filter(movie => {
-        return movie.backdrop_path != null
+        return movie.backdrop_path != null;
       });
       this.loading = false;
     });
