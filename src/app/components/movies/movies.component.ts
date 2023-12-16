@@ -42,7 +42,9 @@ export class MoviesComponent implements OnInit {
       this.searchResults = [];
     } else {
       this.moviesService.searchMovies(this.searchQuery).subscribe(res => {
-        this.searchResults = res.results;
+        this.searchResults = res.results.filter(movie => {
+          return movie.backdrop_path != null
+        });
         this.loading = false;
       })
     }
