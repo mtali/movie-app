@@ -122,6 +122,21 @@
             </div>
           }
         </div>
+        <p-dialog [(visible)]="visible"
+                  [style]="{width: '900px', height: '600px'}"
+                  (onHide)="onDialogHide()">
+
+          @if (this.selectedVideoUrl) {
+            <iframe
+              [src]="this.selectedVideoUrl"
+              width="100%"
+              class="border-none"
+              height="100%"
+              allow="autoplay; encrypted-media"
+              allowfullscreen></iframe>
+          }
+
+        </p-dialog>
       </p-tabPanel>
       <p-tabPanel header="Photos" headerStyleClass="text-xl">
         <p>Photos</p>

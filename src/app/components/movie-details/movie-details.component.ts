@@ -5,6 +5,7 @@ import {Cast} from "../../models/cast";
 import {MovieCreditsResponse} from "../../models/movie-credits-response";
 import {Video} from "../../models/video";
 import {VideosResponse} from "../../models/videos-response";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-movie-details',
@@ -13,15 +14,20 @@ import {VideosResponse} from "../../models/videos-response";
 })
 export class MovieDetailsComponent implements OnInit {
   public id!: number;
+  visible: boolean = false
+  selectedVideoUrl: SafeUrl | null = null
   movie: any;
   casts: Cast[] = [];
   responsiveOptions: any
   video: Video | null = null;
   relatedVideos: any
+  private youtubeBaseUrl: string = 'https://www.youtube.com/embed';
+  private autoPlay: string = '?rel=0;&autoplay=1&mute=0';
 
   constructor(
     private moviesService: MoviesService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private sanitizer: DomSanitizer,
   ) {
     this.responsiveOptions = [
       {
@@ -72,6 +78,11 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   openDialogVideo(item: Video) {
+    this.visible = true;
+    this.selectedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${this.youtubeBaseUrl}/${item.key}/${this.autoPlay}`);
+  }
 
+  onDialogHide() {
+    this.selectedVideoUrl = null;
   }
 }

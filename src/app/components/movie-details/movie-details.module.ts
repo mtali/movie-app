@@ -5,6 +5,7 @@ import {MovieDetailsRoutingModule} from "./movie-details-routing.module";
 import {TabViewModule} from "primeng/tabview";
 import {PipeModule} from "../../pipe/pipe.module";
 import {CarouselModule} from "primeng/carousel";
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {CarouselModule} from "primeng/carousel";
     MovieDetailsRoutingModule,
     TabViewModule,
     PipeModule,
-    CarouselModule
+    CarouselModule,
+    DialogModule
   ]
 })
 export class MovieDetailsModule {
