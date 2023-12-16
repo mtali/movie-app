@@ -27,7 +27,7 @@ export class MoviesComponent implements OnInit {
 
   getTopRatedMovies(page: number) {
     this.loading = true;
-    this.moviesService.getTopRatedMovies(page).pipe(delay(2000)).subscribe((res: MoviesResponse) => {
+    this.moviesService.getTopRatedMovies(page).pipe(delay(800)).subscribe((res: MoviesResponse) => {
         this.topRatedMovies = res.results;
         this.totalResults = res.total_results;
         this.loading = false;

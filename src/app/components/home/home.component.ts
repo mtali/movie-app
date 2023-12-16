@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   trendingMovies(page: number) {
-    this.moviesService.getNowPlaying(page).pipe(delay(2000)).subscribe((res: MoviesResponse) => {
+    this.moviesService.getNowPlaying(page).pipe(delay(800)).subscribe((res: MoviesResponse) => {
       this.nowPlaying = res.results;
       this.loading = false;
     });
