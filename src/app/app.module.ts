@@ -10,13 +10,15 @@ import {SliderComponent} from './components/slider/slider.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SkeletonModule} from "./shared/skeleton/skeleton.module";
 import {CarouselModule} from "primeng/carousel";
+import {FooterComponent} from "./components/includes/footer/footer.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SliderComponent
+    SliderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
