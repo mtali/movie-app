@@ -6,6 +6,10 @@
   width: 50%;
   background-image: linear-gradient(to right, #000 0, transparent 50%, transparent 100%);
   content: "";
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
 }
 
 

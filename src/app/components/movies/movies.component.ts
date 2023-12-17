@@ -28,7 +28,7 @@ export class MoviesComponent implements OnInit {
   getTopRatedMovies(page: number) {
     this.loading = true;
     this.moviesService.getTopRatedMovies(page).pipe(delay(800)).subscribe((res: MoviesResponse) => {
-        this.topRatedMovies = res.results;
+      this.topRatedMovies = this.shuffle(res.results);
         this.totalResults = res.total_results;
         this.loading = false;
       }
@@ -53,5 +53,17 @@ export class MoviesComponent implements OnInit {
   onPageChange(event: any) {
     const page = event.page + 1;
     this.getTopRatedMovies(page);
+  }
+
+  private shuffle<T>(array: T[]): T[] {
+    const shuffledArray = array.slice();
+    let currentIndex = shuffledArray.length;
+    let randomIndex: number
+    while (currentIndex > 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+      [shuffledArray[currentIndex], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[currentIndex]];
+    }
+    return shuffledArray;
   }
 }
