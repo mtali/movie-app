@@ -1,12 +1,15 @@
-.backdrop::after {
-  content: "";
+.with-backdrop::after {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 50%;
   background-image: linear-gradient(to right, #000 0, transparent 50%, transparent 100%);
+  @media (min-width: 768px) {
+    content: "";
+  }
 }
+
 
 .info {
   display: flex;
