@@ -26,7 +26,7 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.getNowPlayingMovies(1);
-    this.sliderTimer();
+    // this.sliderTimer();
   }
 
   getNowPlayingMovies(page: number) {

@@ -5,9 +5,7 @@
   left: 0;
   width: 50%;
   background-image: linear-gradient(to right, #000 0, transparent 50%, transparent 100%);
-  @media (min-width: 768px) {
-    content: "";
-  }
+  content: "";
 }
 
 
