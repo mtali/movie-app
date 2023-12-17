@@ -2,7 +2,6 @@
   @for (slider of movieData | slice: 1;track slider.id) {
     <div *ngIf="current == $index" class="relative flex h-full bg-black flex-row-reverse">
       <div class="bg-gray-600 flex-[3] relative with-backdrop" @fade>
-
         <img class="h-full w-full object-cover" src="https://image.tmdb.org/t/p/original/{{ slider.backdrop_path }}"
              alt="">
       </div>
