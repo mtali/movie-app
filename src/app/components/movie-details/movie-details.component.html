@@ -139,7 +139,13 @@
         </p-dialog>
       </p-tabPanel>
       <p-tabPanel header="Photos" headerStyleClass="text-xl">
-        <p>Photos</p>
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 min-w-full gap-5">
+          @for (backdrop of backdrops;track backdrop.file_path) {
+            <div class="image">
+              <img class="lazyload" src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/{{ backdrop?.file_path }}">
+            </div>
+          }
+        </div>
       </p-tabPanel>
     </p-tabView>
   </div>

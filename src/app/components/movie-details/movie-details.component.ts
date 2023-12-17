@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   responsiveOptions: any
   video: Video | null = null;
   relatedVideos: any
+  backdrops: any
   private youtubeBaseUrl: string = 'https://www.youtube.com/embed';
   private autoPlay: string = '?rel=0;&autoplay=1&mute=0';
 
@@ -54,7 +55,8 @@ export class MovieDetailsComponent implements OnInit {
       this.getMovie(this.id);
       this.getCasts(this.id);
       this.getVideos(this.id);
-    })
+      this.getBackdropsImages(this.id);
+    });
   }
 
 
@@ -75,6 +77,13 @@ export class MovieDetailsComponent implements OnInit {
       this.video = res.results[0];
       this.relatedVideos = res.results;
     }));
+  }
+
+  getBackdropsImages(movieId: number) {
+    this.moviesService.getBackdropImages(movieId).subscribe(res => {
+      console.log(res)
+      this.backdrops = res.backdrops;
+    });
   }
 
   openDialogVideo(item: Video) {

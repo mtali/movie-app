@@ -54,4 +54,8 @@ export class MoviesService {
   getMovieVideos(id: number): Observable<VideosResponse> {
     return this.http.get<VideosResponse>(`${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}`);
   }
+
+  getBackdropImages(movieId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/movie/${movieId}/images?api_key=${this.apiKey}`)
+  }
 }
