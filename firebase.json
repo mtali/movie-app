@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/movie-app",
+    "public": "dist/movies-app",
     "ignore": [
       "firebase.json",
       "**/.*",
